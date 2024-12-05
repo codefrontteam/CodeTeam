@@ -1,0 +1,48 @@
+
+Dörd frontend developerın birgə işləməsi üçün kodların strukturunu yaxşı təşkil etmək və Git branching strategiyası tətbiq etmək vacibdir. Bu qaydalar kodun "dağılmasının" (conflict və ya uyğunsuzluqların yaranmasının) qarşısını alacaq:
+
+1. Əsas branchlar:
+main (və ya master):
+Əsas branchdır və yalnız tam sınaqdan keçmiş, işlək vəziyyətdə olan kod buraya push edilir.
+develop:
+Yeni funksionallıqların birləşdirilməsi üçün istifadə olunur. Kod main-ə göndərilməzdən əvvəl sınaqdan keçmiş kodlar buraya merge edilir.
+2. İş üçün personal branchlar yaradın:
+Hər developer öz funksionallığı üzərində fərdi branch-da işləməlidir.
+Branch adlarını müəyyən qaydaya uyğun saxlamaq tövsiyə edilir:
+
+Funksiyaya əsaslanan branchlar:
+Məsələn: feature/add-login, feature/update-dashboard
+Bug düzəlişi üçün branchlar:
+Məsələn: bugfix/fix-navbar, bugfix/cart-total-error
+Dizayn üçün branchlar:
+Məsələn: design/update-header
+3. Branchların merge edilmə qaydası:
+Hər developer öz funksionallığını işləyib tamamladıqdan sonra branch-ını develop branch-ına merge etsin.
+Bunun üçün:
+Pull Request (PR) yaradın.
+Kod nəzərdən keçirilsin (Code Review).
+Konfliktlər yoxlanılsın və həll edilsin.
+main branchına yalnız develop branch-ından merge edin və bu zaman hər şeyin işlək olduğunu sınaqdan keçirin.
+4. Təmiz Git axını üçün addımlar:
+Branch yaratma:
+
+
+git checkout -b feature/add-login
+Branch-ı güncəl saxlayın:
+İşləyərkən develop branch-ından dəyişiklikləri tez-tez götürün:
+
+
+git pull origin develop
+Push edin:
+
+
+git push origin feature/add-login
+Pull Request (PR):
+İşinizi tamamladıqdan sonra GitHub-da PR yaradaraq develop branch-ına merge edin.
+
+5. Təbii ki:
+Kod yazarkən konvensiyalara riayət edin (adlandırma qaydaları, kod stili).
+Git commit mesajlarını aydın saxlayın:
+✅ Add login functionality
+✅ Fix header alignment
+❌ Updated stuff
